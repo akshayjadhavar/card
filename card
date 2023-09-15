@@ -1,0 +1,90 @@
+#!/bin/bash
+
+EnemyCountries=( pakistan Pakistan china China northkorea NorthKorea afghanistan Afghanistan )
+
+
+echo "-------------------************AADHAR CARD**************----------------------------"
+echo
+echo "Please provide your NAME: "
+read name1
+echo
+
+echo "What is your BIRTH YEAR (in years 'YYYY'): "
+read age1
+let age=2023-$age1
+echo
+
+echo "Provide your COUNTRY's name: "
+read country1
+echo
+
+echo "---------------------------------------------------"
+echo "This is the info you've provided"
+echo
+echo "Name : $name1"
+echo "Age : $age"
+echo "Country : $country1"
+echo
+echo "---------------------------------------------------"
+
+echo
+echo
+
+
+let i=0
+for i in ${EnemyCountries[@]}
+do
+        if [ $country1 == $i ]
+        then
+                echo
+                echo "*********************************************************************************************************************"
+                echo
+		echo "Sorry to inform you but your nationality belongs to the countries listed in our BLACKLIST."
+                echo
+		echo "*********************************************************************************************************************"
+                echo
+                exit
+        else
+		let b=1+2
+        fi
+done
+
+if [ $age1 -ge 2023 ]
+then
+        echo
+        echo "*********************************************************************************************************************"
+        echo "Sorry but it seems you've entered an INVALID birth year or the current year."
+	echo "Try entering a valid birth year with the format 'YYYY'."
+	echo "Try again later."
+        echo "*********************************************************************************************************************"
+        echo
+	exit
+
+elif [ $age -lt 16 ]
+then
+	echo "*********************************************************************************************************************"
+	echo
+	echo "Sorry to inform you but you are currently UNDERAGE to obtain your aadhar card."
+	echo
+	let a=16-$age
+	echo "You need to wait for $a years more to become elegible."
+	echo "Thank you."
+	echo
+	echo "*********************************************************************************************************************"
+	echo
+
+else
+	echo
+	echo "*********************************************************************************************************************"
+	echo "---------------------------------------------------------------------------------------------------------------------"
+	echo
+	echo "VALID entries to obtain the AADHAR card."
+	echo 
+	echo "YOU ARE ELIGIBLE."
+	echo
+	echo "---------------------------------------------------------------------------------------------------------------------"
+	echo "*********************************************************************************************************************"
+	echo
+fi
+
+
